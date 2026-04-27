@@ -6,67 +6,66 @@ void push(int x){
     if(top==size-1){
         printf("Stack overflow");
     }else{
-        arr[top]=x;
         top++;
+        arr[top]=x;
     }
 }
 void pop(){
     int item;
-        if(top==-1){
+    if(top==-1){
         printf("Stack underflow");
     }else{
-        item=arr[top];
+        item=top;
+        printf("%d is going to pop.",item);
         top--;
-        printf("%d is deleted from stack.",item);
     }
-
 }
 void peek(){
-    if(top==-1){
-        printf("Underflow condition");
+if(top==-1){
+        printf("Stack underflow");
     }else{
-        printf("This is the top element %d",arr[top]);
+        printf("(|%d|) is top elelment in stack\n",arr[top]);
     }
 }
 void display(){
-    if(top==-1){
-        printf("No element found:-Underflow condition");
-
-    }
-    else{
-        int item=top;
-        while(item>=0){
-            printf("%d",arr[item]);
-            item--;
+int item=top;
+if(top==-1){
+        printf("Stack underflow");
+    }else{
+        while (item>-1)
+        {
+        printf("%d\n",arr[item]);
+        item--;
         }
-
+        
     }
 }
 int main(){
-int insert_val,opration,repeat,program_rerun;
-do
-{
-    printf("Enter 1 to push____Enter 2 to pop_____Enter 3 to peek_____Enter 4 to display:-\nEnter:-");
-scanf("%d",&opration);
-
-if (opration==1){
-    printf("Enter how many number you want to push:-");
-    scanf("%d",&repeat);
+    int opration,pushing,repeat;
+    char rerun;
+    do
+    {
+    printf("Choose the opration|\nEnter (1) for push____Enter (2) for pop__Enter (3) for peek__Enter (4 for display)):-");
+    scanf("%d",&opration);
+    if(opration==1){
+        printf("How many number you want to enter:-");
+        scanf("%d",&repeat);
     while(repeat>0){
-    printf("Enter the number:-");
-    scanf("%d",&insert_val);
-    push(insert_val);
-    repeat--;
+        printf("Enter number to push:-");
+        scanf("%d",&pushing);
+        push(pushing);
+        repeat--;
+        }
+    }else if(opration==2){
+        pop();
+    }else if(opration==3){
+        peek();
+    }else if(opration==4){
+        display();
     }
-}else if(opration==2){
-    pop();
-}else if(opration==3){
-    peek();
-}else if(opration==4){
-    display();
-}
-printf("Enter (E) to exit OR Enter any key to continue the Re Run the program:-");
-scanf("%d",&program_rerun);
-} while (program_rerun=!"E");
+    printf("Want to QUIT:press E on keyboard:-");
+    scanf(" %c",&rerun);
+    } while (rerun!='E'||rerun!='e');
 
+    
 }
